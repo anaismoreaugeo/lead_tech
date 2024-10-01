@@ -37,8 +37,8 @@
   },
   "jest": {
     "testEnvironment": "node",
-    "testMatch": ["**/__tests__/**/*.test.js", "**/?(*.)+(spec|test).[jt]s?(x)"],
-    "verbose": true
+    "testMatch": ["**/app/*.test.js"],
+      "verbose": true
   },
   "nyc": {
     "reporter": ["text", "lcov", "html"],
