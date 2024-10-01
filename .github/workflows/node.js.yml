@@ -29,7 +29,5 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
-    - name: Generate coverage report
-      run: npm run coveralls
-      env:
-        COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+    - name: Coveralls
+      uses: coverallsapp/github-action@v2
