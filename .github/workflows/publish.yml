@@ -17,5 +17,4 @@ jobs:
       - name: Build the hello-docker Docker image
         run: |
           docker build . --tag ghcr.io/anaismoreaugeo/hello-docker-gcr-demo:staging
-          docker run ghcr.io/anaismoreaugeo/lead_tech/hello-docker-gcr-demo:staging
-          docker push ghcr.io/anaismoreaugeo/:ead_tech/hello-docker-gcr-demo:staging
+          docker push ghcr.io/anaismoreaugeo/lead_tech/hello-docker-gcr-demo:staging
