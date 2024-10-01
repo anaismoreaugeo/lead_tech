@@ -37,12 +37,14 @@
   },
   "jest": {
     "testEnvironment": "node",
+    "testMatch": ["**/__tests__/**/*.test.js", "**/?(*.)+(spec|test).[jt]s?(x)"],
     "verbose": true
   },
   "nyc": {
     "reporter": ["text", "lcov", "html"],
     "all": true,
-    "include": ["app/**/*.js"]
+    "include": ["app/**/*.js"],
+    "extension": [".js"]
   },
   "prettier": {
     "singleQuote": true
