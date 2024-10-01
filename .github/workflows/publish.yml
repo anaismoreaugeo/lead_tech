@@ -1,9 +1,14 @@
 name: publish
-on: [push]
+on:
+  push:
+    branches:
+      - main
+      - release
 
 jobs:
-  publish-hello-docker-image:
+  publish-hello-docker-image-staging:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' 
     steps:
       - uses: actions/checkout@v2
 
@@ -14,7 +19,25 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build the hello-docker Docker image
+      - name: Build the hello-docker Docker image for Staging
         run: |
           docker build . --tag ghcr.io/anaismoreaugeo/hello-docker-gcr-demo:staging
           docker push ghcr.io/anaismoreaugeo/hello-docker-gcr-demo:staging
+
+  publish-hello-docker-image-production:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/release' 
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build the hello-docker Docker image for Production
+        run: |
+          docker build . --tag ghcr.io/anaismoreaugeo/hello-docker-gcr-demo:production
+          docker push ghcr.io/anaismoreaugeo/hello-docker-gcr-demo:production
