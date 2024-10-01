@@ -35,6 +35,7 @@
   },
   "jest": {
     "testEnvironment": "node",
+    "testMatch": ["**/app/__tests__/*.test.js"],
       "verbose": true
   },
   "prettier": {
