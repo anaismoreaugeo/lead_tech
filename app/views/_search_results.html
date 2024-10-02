@@ -6,6 +6,12 @@
   </div>
   <div class="panel-body">
 
+    <form action="/zip" method="POST">
+      <label for="tags">Entrez les tags (séparés par des virgules) :</label>
+      <input type="text" id="tags" name="tags" required>
+      <button type="submit" class="btn btn-primary">Télécharger ZIP</button>
+    </form>
+    
     <% if (photos.length) { %>
 
       <ul>

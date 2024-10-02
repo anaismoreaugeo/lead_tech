@@ -7,7 +7,7 @@
   },
   "private": true,
   "main": "app/server.js",
-"scripts": {
+  "scripts": {
     "start": "nodemon app/server.js",
     "test": "npm run lint && npm run jest",
     "test:e2e": "jest --runInBand e2e_tests/*.test.js",
@@ -15,9 +15,17 @@
     "lint": "eslint app e2e_tests"
   },
   "dependencies": {
+    "@google-cloud/pubsub": "^4.7.2",
+    "@google-cloud/storage": "^7.13.0",
+    "archiver": "^7.0.1",
+    "axios": "^1.7.7",
+    "dayjs": "^1.11.13",
+    "dotenv": "^16.4.5",
     "ejs": "^3.1.8",
     "express": "~4.16.2",
     "got": "^8.0.1",
+    "moment": "^2.30.1",
+    "node-fetch": "^2.7.0",
     "serve-favicon": "^2.4.5"
   },
   "devDependencies": {
@@ -35,8 +43,10 @@
   },
   "jest": {
     "testEnvironment": "node",
-    "testMatch": ["**/app/__tests__/*.test.js"],
-      "verbose": true
+    "testMatch": [
+      "**/app/__tests__/*.test.js"
+    ],
+    "verbose": true
   },
   "prettier": {
     "singleQuote": true

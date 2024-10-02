@@ -24,4 +24,12 @@
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
+  <form action="/zip" method="POST">
+    <!-- Réutiliser les mêmes tags et le mode de tag pour le fichier ZIP -->
+    <input type="hidden" name="tags" value="<%= tagsParameter %>">
+    <input type="hidden" name="tagmode" value="<%= tagmodeParameter %>">
+    <button type="submit" class="btn btn-secondary">Télécharger ZIP</button>
+  </form>
+ 
+  
 </div>
